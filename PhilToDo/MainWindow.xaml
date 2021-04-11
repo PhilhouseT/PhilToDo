@@ -15,7 +15,7 @@
         <Button x:Name="BtnEdit" Content="View/edit selected" HorizontalAlignment="Left" Margin="168,28,0,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnEdit_Click"/>
         <Button x:Name="BtnCompleted" Content="Invert completed" HorizontalAlignment="Left" Margin="347,28,0,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnCompleted_Click"/>
         <Button x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="552,28,0,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnDelete_Click"/>
-        <DataGrid x:Name="DgTasks" Grid.ColumnSpan="2" Margin="0,68,0,0" TabIndex="5" SelectionMode="Single" IsReadOnly="True"/>
+        <DataGrid x:Name="DgTasks" Grid.ColumnSpan="2" Margin="0,68,0,0" TabIndex="5" SelectionMode="Single" IsReadOnly="True" MouseDoubleClick="DgTasks_MouseDoubleClick"/>
 
     </Grid>
 </Window>

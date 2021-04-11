@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.IO;
 
 namespace PhilToDo
 {
@@ -55,6 +43,21 @@ namespace PhilToDo
                 return;
             }
 
+            EditItem();
+        }
+
+        private void DgTasks_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int index = DgTasks.SelectedIndex;
+
+            if (index != -1)
+            {
+                EditItem();
+            }
+        }
+
+        private void EditItem()
+        {
             Task task = (Task)DgTasks.SelectedItem;
             TaskDetails taskDetails = new(task, taskList);
             taskDetails.ShowDialog();
@@ -89,6 +92,7 @@ namespace PhilToDo
             }
         }
 
+        // Reload the display grid after data has changed.
         private void ReloadGrid(bool deleted)
         {
             int index = DgTasks.SelectedIndex;
@@ -100,10 +104,5 @@ namespace PhilToDo
                 DgTasks.SelectedIndex = index;
             }
         }
-
-        //private void SaveTaskList()
-        //{
-        // TODO: Save to file
-        //}
     }
 }

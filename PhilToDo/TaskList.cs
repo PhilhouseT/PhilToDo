@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
 
@@ -12,8 +8,6 @@ namespace PhilToDo
     public class TaskList
     {
         public List<Task> Tasks { get; set; }
-
-        //public bool NeedsSave { get; set; }
 
         public TaskList()
             => Tasks = new List<Task>();
@@ -36,7 +30,5 @@ namespace PhilToDo
             serializer.Serialize(streamWriter, this);
             streamWriter.Close();
         }
-
-
     }
 }

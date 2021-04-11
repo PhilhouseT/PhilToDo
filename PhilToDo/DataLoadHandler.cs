@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
@@ -11,6 +7,7 @@ namespace PhilToDo
 {
     public static class DataFileHandler
     {
+        // Check that the target directory for the data file exists. Create it if not.
         public static bool CheckDirectory()
         {
             try
@@ -46,14 +43,15 @@ namespace PhilToDo
                 catch (System.InvalidOperationException e)
                 {
                     streamReader.Close();
-                    success = HandleImportError(e);
+                    success = HandleLoadError(e);
                 }
             }
 
             return success;
         }
 
-        private static bool HandleImportError(Exception e1)
+        // Handles an exception having been thrown in loading from the data file.
+        private static bool HandleLoadError(Exception e1)
         {
             string message = String.Format("Error importing existing XML data: {0}\nDelete file? This will erase all existing data.", e1.Message);
             MessageBoxResult result = MessageBox.Show(message, Global.errorText, MessageBoxButton.YesNo);
